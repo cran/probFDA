@@ -1,0 +1,8 @@
+7efc63bfca23873425121ae806fdb621 *DESCRIPTION
+b3261f66757e5be3cd72306d65cb8ffc *NAMESPACE
+02e78f77e7d44fe31894bf9305ef0e16 *R/pFDA-internal.R
+0a37492d50bcf5b41a20a5c52c3b9acb *R/pfda.R
+6ac09de983f566ca12b0b9673b91ba56 *R/predict.pfda.R
+e7a01b71a28602f7d5707b0a83d7b53f *man/pfda.Rd
+b2b8cf172c01a6430ffb127847df9662 *man/predict.pfda.Rd
+98dfedb72b531b71541de22265302313 *man/probFDA-package.Rd

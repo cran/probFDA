@@ -1,0 +1,5 @@
+exportPattern("^[[:alpha:]]+")
+import(MASS)
+importFrom(stats,predict)
+export(pfda)
+S3method(predict,pfda)
