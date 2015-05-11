@@ -88,7 +88,8 @@ function(Y,cls,model='AkjBk',kernel='',graph=F){
   for (i in 1:n){T[i,g[i]] = 1}
   # 
   V    = .pfda.fstep(Y,T,kernel)
-  for (i in 1:(K-1)) V[,i] = V[,i] / sqrt(sum(V[,i]^2))
+  if (is.matrix(V)) for (i in 1:(K-1)) V[,i] = V[,i] / sqrt(sum(V[,i]^2))
+  else V = matrix(V / sqrt(sum(V^2)),ncol=1)
   prms = .pfda.mstep(Y,V,T,model=model)
   Lobs = .pfda.loglikelihood(prms,Y,V,T)
   

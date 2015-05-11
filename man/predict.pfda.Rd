@@ -49,7 +49,7 @@ m1 = c(0,0); m2 = c(0,2); m3 = c(2,0)
 X = rbind(mvrnorm(n1,m1,S1),mvrnorm(n2,m2,S2),mvrnorm(n3,m3,S3))
 Q = qr.Q(qr(mvrnorm(p,mu=rep(0,p),Sigma=diag(25,p))))
 B = mvrnorm(nrow(X),rep(0,p-2),0.1*diag(rep(p-2,p-2)))
-X = cbind(X,B) %*% Q
+X = crossprod(t(cbind(X,B)),Q)
 cls = rep(c(1,2,3),c(n1,n2,n3))
 
 # Cross-validation
@@ -76,7 +76,8 @@ screen(5)
 plot(crossprod(t(X),pfda(X,cls,model='DkBk')$V),col=cls,pch=(17:19)[cls],main='PFDA',
   xlab='LD1',ylab='LD2')
 screen(2)
-boxplot(t(CCR),names=c('LDA','PFDA'),col=c(1,2),ylab="CCR",main='CV correct classification rate')
+boxplot(t(CCR),names=c('LDA','PFDA'),col=c(1,2),ylab="CCR",
+  main='CV correct classification rate')
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
